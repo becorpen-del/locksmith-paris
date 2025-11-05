@@ -212,6 +212,37 @@ button {
   gap: 0.35rem;
 }
 
+/* Call Now CTA: enforce white text */
+.call-now,
+.call-now:link,
+.call-now:visited,
+.call-now .btn-text,
+.call-now .btn-text *,
+.call-now .icon-phone {
+  color: #fff !important;
+}
+
+.call-now:hover,
+.call-now:focus,
+.call-now:hover .btn-text,
+.call-now:focus .btn-text,
+.call-now:hover .icon-phone,
+.call-now:focus .icon-phone {
+  color: #fff !important;
+}
+
+.call-now .badge-247 {
+  background: transparent !important;
+  color: #fff !important;
+  padding: 0 !important;
+  margin: 0 0 0 0.25rem !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex;
+}
+
 .sticky-call {
   position: fixed;
   left: 0;
