@@ -751,41 +751,49 @@ button {
   width: 100%;
 }
 
-.why-bg {
+/* Fond flouté pour la section "Why choose" */
+#why-choose {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   border-radius: 24px;
   background: #0d1b2a;
   padding-block: clamp(32px, 6vw, 72px);
 }
 
-.why-bg::before {
+#why-choose::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/img/van-exterior.jpg") center / cover no-repeat;
-  filter: blur(8px) saturate(1.1) brightness(0.9);
-  transform: scale(1.05);
-  pointer-events: none;
+  background: url("/img/micro-pricing.jpg") center / cover no-repeat;
+  filter: blur(14px);
+  transform: scale(1.06);
+  z-index: -2;
+  opacity: 0.85;
 }
 
-.why-bg::after {
+#why-choose::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(30, 71, 168, 0.16);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.55)
+  );
+  z-index: -1;
 }
 
-.why-bg > .container {
+#why-choose > .container {
   position: relative;
   z-index: 1;
 }
 
-.why-bg h2 {
+#why-choose h2 {
   color: #fff;
 }
 
-.why-bg .why-card {
+#why-choose .why-card {
   background: rgba(255, 255, 255, 0.92);
 }
 
