@@ -719,6 +719,26 @@ button {
   object-fit: cover;
 }
 
+/* -- Remove thumbnail imagery from service cards -- */
+.service-card picture,
+.service-card figure,
+.service-card .card-media,
+.service-card .service-thumb,
+.services__grid .card-media,
+.services__grid figure {
+  display: none !important;
+}
+
+/* Re-center content and tighten spacing after removing thumbnails */
+.service-card {
+  min-height: 260px;
+  align-content: start;
+}
+
+.service-card > img {
+  margin-bottom: 12px;
+}
+
 .service-card__link {
   color: var(--color-primary);
   font-weight: 600;
