@@ -180,6 +180,25 @@ button {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.call-top .icon-phone {
+  display: inline-block;
+  margin-right: 0.5rem;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
 .sticky-call {
   position: fixed;
   left: 0;
@@ -1164,30 +1183,17 @@ button {
 .human-badge { display: flex; align-items: center; gap: 12px; }
 .picto-micro { width: 36px; height: 36px; border-radius: 999px; object-fit: cover; box-shadow: var(--shadow-soft); }
 
-/* Inline icon helpers */
-.i {
-  display: inline-block;
-  line-height: 1;
-}
-
-/* Phone icon before call CTA text */
-.btn-call-top .i-phone {
-  margin-right: 0.5em;
-  font-size: 1em;
-}
-
-/* Eyebrow row with inline icon */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
 }
 
-/* Lock icon rendered via SVG mask */
-.i-lock {
-  width: 1em;
-  height: 1em;
-  background: currentColor;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M12 2a5 5 0 00-5 5v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm3 8H9V7a3 3 0 016 0v3z"/></svg>') center / contain no-repeat;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M12 2a5 5 0 00-5 5v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm3 8H9V7a3 3 0 016 0v3z"/></svg>') center / contain no-repeat;
+.eyebrow .icon-lock {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 0.4rem;
+  position: relative;
+  top: 0.02em;
+  color: currentColor;
 }
