@@ -199,6 +199,19 @@ button {
   transform: translateY(1px);
 }
 
+.call-now .icon-phone {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  margin-right: 0.35rem;
+}
+
+.call-now .btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 .sticky-call {
   position: fixed;
   left: 0;
@@ -463,10 +476,19 @@ button {
   height: 28px;
   border-radius: 999px;
   background: var(--color-primary);
-  color: #00131f;
+  color: #fff !important;
   font-weight: 900;
   letter-spacing: 0.5px;
   box-shadow: var(--shadow-soft);
+}
+
+.badge-247.on-light {
+  background: var(--brand-700);
+  color: #fff !important;
+}
+
+.btn-primary .badge-247 {
+  color: #fff !important;
 }
 
 .hotline-label {
