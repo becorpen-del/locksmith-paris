@@ -1047,6 +1047,46 @@ button {
   transform: rotate(45deg);
 }
 
+.cta-hero,
+.cta-hero h1,
+.cta-hero h2,
+.cta-hero h3,
+.cta-hero p,
+.cta-hero .lead,
+.cta-hero .subtle,
+.cta-hero .muted {
+  color: #fff !important;
+}
+
+.cta-hero a:not(.btn) {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+.cta-hero .cta-hero__btn,
+.cta-hero .btn-primary {
+  background: #fff !important;
+  color: #0F3FBF !important;
+  border: 1px solid #fff !important;
+  box-shadow: none !important;
+}
+
+.cta-hero .cta-hero__btn:hover,
+.cta-hero .cta-hero__btn:focus,
+.cta-hero .btn-primary:hover,
+.cta-hero .btn-primary:focus {
+  background: #F5F8FF !important;
+  color: #0B32A0 !important;
+  border-color: #F5F8FF !important;
+}
+
+.cta-hero .cta-hero__btn .badge-247 {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 .cta-band {
   padding: var(--spacing-2xl) 0;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-700));
