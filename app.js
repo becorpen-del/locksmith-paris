@@ -25,11 +25,62 @@
     const primaryNav = doc.getElementById('primary-nav');
     if (!navToggle || !primaryNav) return;
 
+    const desktopQuery = win.matchMedia('(min-width: 640px)');
+    const navLinks = primaryNav.querySelectorAll('a');
+
+    const closeNav = () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryNav.classList.remove('active');
+      if (!desktopQuery.matches) {
+        primaryNav.hidden = true;
+      }
+    };
+
+    const openNav = () => {
+      navToggle.setAttribute('aria-expanded', 'true');
+      primaryNav.hidden = false;
+      primaryNav.classList.add('active');
+    };
+
+    const syncWithViewport = (mq) => {
+      const matches = mq?.matches ?? desktopQuery.matches;
+      if (matches) {
+        primaryNav.hidden = false;
+        primaryNav.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      } else {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        primaryNav.hidden = !expanded;
+        primaryNav.classList.toggle('active', expanded);
+      }
+    };
+
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      primaryNav.classList.toggle('active', !expanded);
+      if (expanded) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
+
+    doc.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      if (navToggle.getAttribute('aria-expanded') !== 'true') return;
+      if (desktopQuery.matches) return;
+      closeNav();
+      navToggle.focus();
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (desktopQuery.matches) return;
+        closeNav();
+      });
+    });
+
+    desktopQuery.addEventListener('change', syncWithViewport);
+    syncWithViewport(desktopQuery);
   }
 
   function setupAnalytics() {

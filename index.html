@@ -5,12 +5,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Locksmith Paris | 24/7 Emergency within 30 Minutes – Fixed-Price Quotes &amp; Licensed Experts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
   <meta name="description" content="Locksmith paris emergency specialists delivering 24/7 help with 30-min arrival, licensed &amp; insured engineers, transparent fixed-price quotes, and no hidden fees.">
   <link rel="canonical" href="https://www.paris-city-locksmith.com/">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#1E58A8">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/styles.css" as="style">
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -296,7 +298,7 @@
 </head>
 <body class="feature">
   <a class="skip-link" href="#main">Skip to main content</a>
-  <p class="no-js-notice">JavaScript is disabled. For the best experience, please enable it or call us at <a href="tel:+33651685988" aria-label="Call Locksmith Paris 06 51 68 59 88">06 51 68 59 88</a>.</p>
+  <p class="no-js-notice">JavaScript is disabled. For the best experience, please enable it or call us at <a href="tel:+33651685988" class="tel-link" aria-label="Call locksmith Paris 24/7">06 51 68 59 88</a>.</p>
   <div class="site-wrapper">
     <div class="top-bar" role="banner">
       <div class="container">
@@ -307,7 +309,10 @@
           <span class="top-bar__item">Card Payments</span>
         </div>
         <div class="top-bar__right">
-          <a class="cta-link" href="tel:+33651685988" data-analytics="cta-call-top" aria-label="Call Locksmith Paris 06 51 68 59 88">Call 06 51 68 59 88</a>
+          <a class="cta-link tel-link btn-call-top" href="tel:+33651685988" data-analytics="cta-call-top" aria-label="Call locksmith Paris 24/7">
+            <span class="i i-phone" aria-hidden="true">&#128222;</span>
+            Call 06 51 68 59 88
+          </a>
         </div>
       </div>
     </div>
@@ -316,14 +321,7 @@
       <div class="container">
         <div class="logo" aria-label="Paris City Locksmith">
           <a href="#hero" class="logo__link" aria-label="Go to top">
-            <span class="logo__icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="18" y="26" width="28" height="28" rx="6" stroke="currentColor" stroke-width="4" />
-                <path d="M32 34v8" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-                <circle cx="32" cy="44" r="2.5" fill="currentColor" />
-                <path d="M42 26v-6c0-5.523-4.477-10-10-10s-10 4.477-10 10v6" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-              </svg>
-            </span>
+            <img class="logo__image" src="/img/logo-lp-sxm.png" alt="Paris City Locksmith logo" decoding="async" />
             <span class="logo__wordmark">Paris City Locksmith</span>
           </a>
         </div>
@@ -333,7 +331,7 @@
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
         </button>
-        <nav class="primary-nav" id="primary-nav">
+        <nav class="primary-nav" id="primary-nav" hidden>
           <ul class="nav-list">
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">Prices</a></li>
@@ -351,49 +349,54 @@
         <div class="container hero__container">
           <div class="hero__content">
             <section class="hotline-banner" aria-label="Call Locksmith Paris 24/7">
-              <p class="hotline-banner-p">
-                <span class="badge-247">24/7</span>
-                <span class="hotline-label">Call locksmith Paris now:</span>
-                <a class="hotline-number" href="tel:+33651685988" aria-label="Call Locksmith Paris 06 51 68 59 88">06 51 68 59 88</a>
-              </p>
+              <div class="hotline-wrap">
+                <span class="badge-247" aria-hidden="true">24/7</span>
+                <strong class="hotline-label">Call locksmith paris now:</strong>
+                <a class="hotline-number tel-link" href="tel:+33651685988" aria-label="Call locksmith Paris 24/7">06 51 68 59 88</a>
+              </div>
             </section>
-            <p class="hero__eyebrow">Emergency Locksmith in Paris</p>
+            <p class="hero__eyebrow eyebrow">
+              Emergency Locksmith in Paris
+              <span class="i i-lock" aria-hidden="true"></span>
+            </p>
             <h1 id="hero-title">Locksmith Paris — 24/7 Emergency Within 30 Minutes</h1>
-            <p class="hero__subhead">Paris City Locksmith delivers rapid assistance across every arrondissement with a fixed-price quote, no hidden fees, and our locksmith Paris technicians ready for door openings, lock changes, and burglary repairs.</p>
-            <figure class="hero-human hero-figure">
-              <picture>
-                <img class="human-img hero-img"
-                     src="/img/hero-locksmith.jpg"
-                     loading="eager" fetchpriority="high" decoding="async"
-                     alt="Paris locksmith ready to help, looking toward the call button">
-              </picture>
-            </figure>
-            <div class="hero-chips" aria-label="Key assurances">
-              <div class="chip">Average arrival time <strong>30 minutes</strong></div>
-              <div class="chip">Transparent <strong>fixed-price quote</strong> before work</div>
-              <div class="chip">Damage-free opening &amp; <strong>12-month warranty</strong></div>
-            </div>
+            <p class="hero__subhead">Paris City Locksmith delivers rapid assistance across every arrondissement with a fixed-price quote, no hidden fees, and our locksmith paris technicians ready for door openings, lock changes, and burglary repairs.</p>
+            <picture class="hero-human">
+              <img
+                class="human-img"
+                src="/img/hero-locksmith.jpg"
+                srcset="/img/hero-locksmith.jpg 640w, /img/hero-locksmith.jpg 1024w, /img/hero-locksmith.jpg 1600w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 65vw, 720px"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="Serrurier professionnel à Paris tenant ses outils">
+            </picture>
+            <ul class="hero__proof hero__proof-wrapper">
+              <li>Average arrival time <strong>30 minutes</strong></li>
+              <li>Transparent <strong>fixed-price quote</strong> before work</li>
+              <li>Damage-free opening &amp; <strong>12-month warranty</strong></li>
+            </ul>
             <div class="hero__actions"></div>
             <div class="hero__meta"></div>
           </div>
-          <aside class="sticky sticky-contact">
+          <aside class="sticky sticky-contact" data-sticky-card>
             <section id="call" class="card contact-card" aria-labelledby="call-title">
-              <div style="padding:18px">
-                <h3 id="call-title" style="margin:0 0 8px">Need help now?</h3>
+              <div class="contact-card__inner">
+                <h3 id="call-title">Need help now?</h3>
                 <p class="help">Tap the button to call us immediately. We pick up 24/7.</p>
-                <div class="human-badge" style="margin:8px 0 10px;">
+                <div class="human-badge">
                   <img class="human-avatar" src="/img/operator-24-7.jpg" alt="Julie, operator 24/7" loading="lazy" decoding="async">
                   <div>
                     <strong>Julie</strong> — Operator 24/7<br>
                     <small>We answer in under 1 minute</small>
                   </div>
                 </div>
-                <div class="submit">
-                  <a class="btn"
+                <div class="contact-card__actions">
+                  <a class="btn btn-primary btn-call tel-link"
                      href="tel:+33651685988"
-                     aria-label="Call Locksmith Paris now"
-                     style="display:inline-block;text-align:center;width:100%;padding:12px 16px;border-radius:14px;background:var(--color-primary);color:#fff;font-weight:800">
-                    📞 Call now
+                     aria-label="Call locksmith Paris 24/7">
+                    📞 Call now — 24/7
                   </a>
                 </div>
               </div>
@@ -403,7 +406,7 @@
       </section>
 
       <section class="social-proof full-bleed" aria-label="Customer rating and partners">
-        <div class="social-proof__grid">
+        <div class="social-proof__grid grid cols-3">
           <div class="social-proof__card">
             <div class="social-proof__card-icon">
               <img src="/assets/star.svg" width="48" height="48" alt="Five-star locksmith rating" loading="lazy" decoding="async">
@@ -437,27 +440,47 @@
       <section class="services" id="services" aria-labelledby="services-title">
         <div class="container">
           <h2 id="services-title">Our locksmith services in Paris</h2>
-          <p class="section-intro">Emergency locksmith in Paris, day or night. From door opening to high-security upgrades, we keep homes and businesses safe. As a local locksmith Paris, we prioritize non-destructive entry and upfront pricing.</p>
-          <div class="services__grid">
+          <p class="section-intro">Emergency locksmith in Paris, day or night. From door opening to high-security upgrades, we keep homes and businesses safe. As a local locksmith paris, we prioritize non-destructive entry and upfront pricing.</p>
+          <div class="services__grid grid cols-3">
             <article class="service-card" id="service-emergency">
+              <picture>
+                <img class="human-img"
+                     src="/img/intervention-serrurier.png"
+                     loading="lazy" decoding="async"
+                     alt="Locksmith Paris performing an emergency non-destructive door opening">
+              </picture>
               <img src="/assets/door.svg" width="64" height="64" alt="Emergency door opening in Paris" loading="lazy" decoding="async">
               <h3>Emergency door opening</h3>
               <p>Fast entry for lockouts, snapped keys, or seized cylinders anywhere in Paris.</p>
               <a href="#details-emergency" class="service-card__link">Learn more</a>
             </article>
             <article class="service-card" id="service-replacement">
+              <picture>
+                <img class="human-img" src="/img/lock-close-1.jpg" loading="lazy" decoding="async"
+                     alt="Locksmith Paris replacing a euro cylinder (close-up)">
+              </picture>
               <img src="/assets/lock.svg" width="64" height="64" alt="Lock replacement in Paris" loading="lazy" decoding="async">
               <h3>Lock replacement &amp; cylinder change</h3>
               <p>Upgrade to anti-snap cylinders or replace damaged locks with certified hardware.</p>
               <a href="#details-replacement" class="service-card__link">Learn more</a>
             </article>
             <article class="service-card" id="service-burglary">
+              <picture>
+                <img class="human-img"
+                     src="/img/vehicule-intervention.png"
+                     loading="lazy" decoding="async"
+                     alt="Locksmith Paris intervention vehicle ready for post-burglary repairs">
+              </picture>
               <img src="/assets/shield.svg" width="64" height="64" alt="Burglary repair locksmith" loading="lazy" decoding="async">
               <h3>Burglary repair &amp; reinforcement</h3>
               <p>Emergency board-ups, door frame repair, and reinforced metal strike plates.</p>
               <a href="#details-burglary" class="service-card__link">Learn more</a>
             </article>
             <article class="service-card" id="service-security">
+              <picture>
+                <img class="human-img" src="/img/lock-close-2.jpg" loading="lazy" decoding="async"
+                     alt="Locksmith Paris installing reinforced escutcheon and strike plate">
+              </picture>
               <img src="/assets/shield-plus.svg" width="64" height="64" alt="High-security lock upgrades" loading="lazy" decoding="async">
               <h3>High-security locks &amp; cylinders</h3>
               <p>Install Fichet, Mul-T-Lock, Vachette, and Abus systems with registered keys.</p>
@@ -505,70 +528,39 @@
         </div>
       </section>
 
-      <section id="why" class="why band band--bg-pricing has-blurred-bg" aria-labelledby="why-title">
+      <section id="why" class="why why-bg" aria-labelledby="why-title">
         <div class="container">
-          <h2 id="why-title">Why choose our locksmith Paris team</h2>
-          <div class="why__grid grid">
-            <div class="why-card card">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 7v5l3 2"></path>
-                </svg>
-              </span>
+          <h2 id="why-title">Why choose our locksmith paris team</h2>
+          <div class="why__grid grid cols-3">
+            <div class="why-card">
+              <img src="/assets/clock.svg" width="48" height="48" alt="30 minute locksmith arrival in Paris" loading="lazy" decoding="async">
               <h3>30-minute average arrival</h3>
               <p>GPS-dispatched locksmiths based across the arrondissements get to you fast.</p>
             </div>
-            <div class="why-card card">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                  <path d="M2 10h20"></path>
-                </svg>
-              </span>
+            <div class="why-card">
+              <img src="/assets/credit-card.svg" width="48" height="48" alt="Transparent locksmith pricing" loading="lazy" decoding="async">
               <h3>Transparent pricing</h3>
               <p>Fixed-price quotes with digital invoices outlining labor, parts, and VAT.</p>
             </div>
-            <div class="why-card card">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"></path>
-                  <path d="M9 12l2 2 4-4"></path>
-                </svg>
-              </span>
+            <div class="why-card">
+              <img src="/assets/shield.svg" width="48" height="48" alt="Licensed and insured locksmith" loading="lazy" decoding="async">
               <h3>Licensed &amp; insured</h3>
               <p>Police-vetted, fully insured locksmiths with A2P-certified hardware in stock.</p>
             </div>
-            <div class="why-card card">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"></path>
-                </svg>
-              </span>
+            <div class="why-card">
+              <img src="/assets/warranty.svg" width="48" height="48" alt="Warranty on locksmith services" loading="lazy" decoding="async">
               <h3>Warranty on parts &amp; labor</h3>
               <p>All locks and workmanship include a 12-month guarantee and aftercare support.</p>
             </div>
-            <div class="why-card card">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 10a8 8 0 1 0-16 0c0 5 8 12 8 12s8-7 8-12z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </span>
+            <div class="why-card">
+              <img src="/assets/map-pin.svg" width="48" height="48" alt="Local Paris locksmiths" loading="lazy" decoding="async">
               <h3>Local Paris locksmiths</h3>
               <p>Community-based engineers who know Paris properties, from Haussmann to modern builds.</p>
             </div>
-            <div class="card card--cta">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.11.8.28 1.58.5 2.34a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.83-1.05a2 2 0 0 1 2.11-.45c.76.22 1.54.39 2.34.5A2 2 0 0 1 22 16.92z"/>
-                </svg>
-              </span>
-              <h3>Need help right now?</h3>
-              <p>Talk to our locksmith Paris operator — we answer in under 1 minute, 24/7.</p>
-              <a class="btn btn-primary call-btn"
-                 href="tel:+33651685988"
-                 aria-label="Call Locksmith Paris now">📞 Call now</a>
+            <div class="why-card why-card--cta">
+              <h3>Ready for help?</h3>
+              <p>Speak with a licensed locksmith now and get your fixed-price quote in minutes.</p>
+              <a class="btn btn-primary tel-link" href="tel:+33651685988" aria-label="Call locksmith Paris 24/7">📞 Call now — 24/7</a>
             </div>
           </div>
         </div>
@@ -576,10 +568,10 @@
       <section class="band band--van">
         <div class="band__copy">
           <h3>Fast dispatch across Paris</h3>
-          <p>Our locksmith Paris teams operate across all arrondissements and nearby suburbs with fully equipped vans.</p>
+          <p>Our locksmith paris teams operate across all arrondissements and nearby suburbs with fully equipped vans.</p>
         </div>
         <picture class="band__media">
-          <img class="human-img" src="/img/camion-serrurier.png" loading="lazy" decoding="async"
+          <img class="human-img" src="/img/van-exterior.jpg" loading="lazy" decoding="async"
                alt="Locksmith Paris intervention van ready for dispatch">
         </picture>
       </section>
@@ -587,7 +579,7 @@
       <section class="coverage" id="coverage" aria-labelledby="coverage-title">
         <div class="container">
           <h2 id="coverage-title">Areas served across Paris &amp; Île-de-France</h2>
-          <p class="section-intro">Our locksmith Paris coverage spans all 20 arrondissements and nearby suburbs, with dedicated locksmiths on-call. Suburban departments handled on request.</p>
+          <p class="section-intro">Our locksmith paris coverage spans all 20 arrondissements and nearby suburbs, with dedicated locksmiths on-call. Suburban departments handled on request.</p>
           <div class="team-strip" style="display:flex;gap:12px;align-items:center;margin:10px 0 14px;">
             <span style="color:rgba(17, 24, 39, 0.65)"><strong>Technicians across Paris</strong> — response in 20–30 min</span>
           </div>
@@ -622,8 +614,8 @@
       <section class="pricing" id="pricing" aria-labelledby="pricing-title">
         <div class="container">
           <h2 id="pricing-title">Pricing &amp; guarantees</h2>
-          <p class="section-intro">With locksmith Paris transparent pricing, you get a clear breakdown of travel, labor, and VAT. Parts are itemised so you can share with your insurer.</p>
-          <div class="pricing__grid">
+          <p class="section-intro">With locksmith paris transparent pricing, you get a clear breakdown of travel, labor, and VAT. Parts are itemised so you can share with your insurer.</p>
+          <div class="pricing__grid grid cols-3">
             <div class="pricing-card">
               <h3>Common services</h3>
               <ul>
@@ -687,7 +679,7 @@
       <section class="reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
           <h2 id="reviews-title">Reviews from across Paris</h2>
-          <div class="reviews__grid">
+          <div class="reviews__grid grid cols-2">
             <article class="review">
               <div class="human-badge" style="margin-bottom:8px;">
                 <div>
@@ -752,11 +744,11 @@
           </div>
           <div class="accordion" role="list">
             <details class="accordion__item" role="listitem">
-              <summary>How fast can your locksmith Paris team arrive?</summary>
+              <summary>How fast can your locksmith paris team arrive?</summary>
               <p>We dispatch the closest locksmith and keep you updated via SMS. Average arrival time is 30 minutes across central Paris and 40 minutes in the outer arrondissements.</p>
             </details>
             <details class="accordion__item" role="listitem">
-              <summary>Do you offer locksmith Paris fixed-price quotes?</summary>
+              <summary>Do you offer locksmith paris fixed-price quotes?</summary>
               <p>Yes. We provide a clear fixed price covering travel, labor, and parts before we start. If we discover additional work is needed, we confirm and document it first.</p>
             </details>
             <details class="accordion__item" role="listitem">
@@ -802,7 +794,7 @@
             <p>Talk directly with a licensed locksmith and get a confirmed 30-minute arrival window.</p>
           </div>
           <div class="cta-band__actions">
-            <a class="btn btn--primary" href="tel:+33651685988" data-analytics="cta-call-band" aria-label="Call Locksmith Paris 06 51 68 59 88">Call 06 51 68 59 88</a>
+            <a class="btn btn-primary tel-link" href="tel:+33651685988" data-analytics="cta-call-band" aria-label="Call locksmith Paris 24/7">Call 06 51 68 59 88</a>
           </div>
         </div>
       </section>
@@ -813,7 +805,10 @@
         <div class="footer__brand">
           <h2 id="footer-title">Paris City Locksmith</h2>
           <p>Serving all Paris arrondissements: 1st (Louvre), 2nd (Bourse), 3rd (Temple), 4th (Hôtel-de-Ville), 5th (Panthéon), 6th (Luxembourg), 7th (Palais-Bourbon), 8th (Élysée), 9th (Opéra), 10th (Entrepôt), 11th (Popincourt), 12th (Reuilly), 13th (Gobelins), 14th (Observatoire), 15th (Vaugirard), 16th (Passy), 17th (Batignolles-Monceau), 18th (Butte-Montmartre), 19th (Buttes-Chaumont), 20th (Ménilmontant)</p>
-          <p><a href="tel:+33651685988" aria-label="Call Locksmith Paris 06 51 68 59 88">06 51 68 59 88</a></p>
+          <address class="footer__address">
+            <a href="tel:+33651685988" class="tel-link" aria-label="Call locksmith Paris 24/7">06 51 68 59 88</a><br>
+            <span>10 Rue de Rivoli, 75004 Paris</span>
+          </address>
           <p>Open 24 hours a day, 7 days a week</p>
         </div>
         <div class="footer__links" aria-label="Quick navigation">
@@ -850,10 +845,16 @@
     </div>
   </div>
 
+  <div class="sticky-call" role="region" aria-label="Call to action" data-visible-on="mobile">
+    <a class="btn btn-primary btn-call tel-link" href="tel:+33651685988" data-mobile-cta aria-label="Call locksmith Paris 24/7">
+      📞 Call now — 24/7
+    </a>
+  </div>
+
   <a class="scroll-call-btn" href="#call" aria-label="Jump to call now section">
     Call now
   </a>
 
-  <script type="module" src="/main.js"></script>
+  <script src="/app.js" defer></script>
 </body>
 </html>
