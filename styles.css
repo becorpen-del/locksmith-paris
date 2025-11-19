@@ -313,31 +313,94 @@ button {
   min-height: 100vh;
 }
 
-.top-bar {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-700));
+.eyebrow {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #0f4ea4;
   color: #fff;
-  font-size: 0.9rem;
 }
-
-.top-bar .container {
+.eyebrow-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-xs) 16px;
-  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  max-width: 1200px;
+  margin-inline: auto;
 }
-
-.top-bar__left,
-.top-bar__right {
+.eyebrow-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.eyebrow-left .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+.eyebrow-left .logo img {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.eyebrow-left .brand-text {
+  font-weight: 600;
+  color: #fff;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
 }
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+}
+.main-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.eyebrow-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (max-width: 1024px) {
+  .main-nav {
+    gap: 0.6rem;
+  }
+}
+@media (max-width: 768px) {
+  .eyebrow-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .main-nav {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .main-nav a {
+    display: inline-block;
+  }
+}
 
-.top-bar__right {
-  margin-left: auto;
+.site-header,
+.top-bar,
+.header-white,
+.header-secondary {
+  display: none !important;
 }
 
 .badge {
@@ -367,8 +430,8 @@ button {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.top-bar .tel-link:hover,
-.top-bar .tel-link:focus-visible {
+.eyebrow .tel-link:hover,
+.eyebrow .tel-link:focus-visible {
   color: #fff;
 }
 
