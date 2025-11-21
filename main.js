@@ -27,9 +27,42 @@
 
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      primaryNav.classList.toggle('active', !expanded);
+      const isOpen = !expanded;
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.classList.toggle('is-open', isOpen);
+      primaryNav.classList.toggle('active', isOpen);
+      body.classList.toggle('nav-open', isOpen);
     });
+
+    primaryNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.classList.remove('active');
+        navToggle.classList.remove('is-open');
+        body.classList.remove('nav-open');
+      });
+    });
+
+    doc.addEventListener('click', (event) => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      if (!isOpen) return;
+      const target = event.target;
+      if (navToggle.contains(target) || primaryNav.contains(target)) return;
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.classList.remove('is-open');
+      primaryNav.classList.remove('active');
+      body.classList.remove('nav-open');
+    });
+
+    const desktopMedia = win.matchMedia('(min-width: 901px)');
+    const resetNav = () => {
+      if (!desktopMedia.matches) return;
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryNav.classList.remove('active');
+      navToggle.classList.remove('is-open');
+      body.classList.remove('nav-open');
+    };
+    desktopMedia.addEventListener('change', resetNav);
   }
 
   function setupAnalytics() {

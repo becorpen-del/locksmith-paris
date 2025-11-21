@@ -313,13 +313,10 @@
             />
             <span class="brand-text">Paris City Locksmith</span>
           </a>
-          <nav class="main-nav" aria-label="Primary navigation">
+          <nav id="primary-nav" class="main-nav" aria-label="Primary navigation">
             <a href="#services">Services</a>
             <a href="#pricing">Prices</a>
-            <a href="#coverage">Areas</a>
-            <a href="#reviews">Reviews</a>
             <a href="#faq">FAQ</a>
-            <a href="#call">Contact</a>
           </nav>
         </div>
         <div class="eyebrow-right">
@@ -327,6 +324,18 @@
             <span class="icon-phone" aria-hidden="true">🚨</span>
             <span class="sr-only">Call </span>06 51 68 59 88
           </a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            <span class="nav-toggle__sr">Toggle navigation</span>
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
+            <span class="nav-toggle__line"></span>
+          </button>
         </div>
       </div>
     </div>
@@ -435,6 +444,17 @@
           <div class="services__grid grid cols-3">
             <article class="service-card" id="service-emergency">
               <img src="/assets/door.svg" width="64" height="64" alt="Emergency door opening in Paris" loading="lazy" decoding="async">
+              <div class="service-thumb">
+                <picture>
+                  <img
+                    src="/img/service-door-open.jpg"
+                    alt="Locksmith opening a front door in Paris during an emergency callout"
+                    loading="lazy"
+                    width="512"
+                    height="342"
+                  />
+                </picture>
+              </div>
               <h3>Emergency door opening</h3>
               <p>Fast entry for lockouts, snapped keys, or seized cylinders anywhere in Paris.</p>
               <a href="#details-emergency" class="service-card__link">Learn more</a>
@@ -459,6 +479,17 @@
             </article>
             <article class="service-card" id="service-burglary">
               <img src="/assets/shield.svg" width="64" height="64" alt="Burglary repair locksmith" loading="lazy" decoding="async">
+              <div class="service-thumb">
+                <picture>
+                  <img
+                    src="/img/serrurier-urgence.png"
+                    alt="Locksmith reinforcing a door frame after a burglary in Paris"
+                    loading="lazy"
+                    width="512"
+                    height="342"
+                  />
+                </picture>
+              </div>
               <h3>Burglary repair &amp; reinforcement</h3>
               <p>Emergency board-ups, door frame repair, and reinforced metal strike plates.</p>
               <a href="#details-burglary" class="service-card__link">Learn more</a>
@@ -468,8 +499,8 @@
               <div class="service-thumb">
                 <picture>
                   <img
-                    src="/img/vachette.jpg"
-                    alt="High-security door hardware installed by a Paris locksmith"
+                    src="/img/bricard.webp"
+                    alt="High-security lock and cylinder installed by Paris locksmiths"
                     loading="lazy"
                     width="512"
                     height="342"
@@ -485,7 +516,7 @@
               <div class="service-thumb">
                 <picture>
                   <img
-                    src="/img/vachette.jpg"
+                    src="/img/serrurier-1.jpg"
                     alt="UPVC, wood and metal door repair by Paris locksmiths"
                     loading="lazy"
                     width="512"
@@ -499,6 +530,17 @@
             </article>
             <article class="service-card" id="service-keys">
               <img src="/assets/key.svg" width="64" height="64" alt="Key duplication coordination" loading="lazy" decoding="async">
+              <div class="service-thumb">
+                <picture>
+                  <img
+                    src="/img/coordination-cle.jpg"
+                    alt="Key duplication coordination with registered locksmith partners"
+                    loading="lazy"
+                    width="512"
+                    height="342"
+                  />
+                </picture>
+              </div>
               <h3>Key duplication coordination</h3>
               <p>Secure key duplication with registered partners and tamper-proof key tracking.</p>
               <a href="#details-keys" class="service-card__link">Learn more</a>
