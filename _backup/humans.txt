@@ -1,9 +1,0 @@
-/* TEAM */
-Developer: Paris City Locksmith Web Team
-Designer: Crafted by Codex (GPT-5) for demo purposes
-Location: Paris, France
-
-/* SITE */
-Standards: HTML5, CSS3, WCAG 2.1 AA
-Tools: Vanilla JS, Accessibility-first design
-Contact: contact@paris-city-locksmith.com

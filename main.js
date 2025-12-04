@@ -12,74 +12,12 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  setupMobileNavigation();
   setupAnalytics();
   const form = doc.querySelector('[data-form]');
   const stickyCard = doc.querySelector('[data-sticky-card]');
   setupForm(form);
   setupMobileForm(form, stickyCard);
   setupDesktopContactToggle(stickyCard);
-
-  function setupMobileNavigation() {
-    const navToggle = doc.querySelector('.mobile-header .nav-toggle');
-    const mobileNav = doc.getElementById('mobile-nav');
-    if (!navToggle || !mobileNav) return;
-
-    const openMenu = () => {
-      navToggle.setAttribute('aria-expanded', 'true');
-      navToggle.setAttribute('aria-label', 'Fermer le menu');
-      mobileNav.classList.add('active');
-      body.classList.add('nav-open');
-    };
-
-    const closeMenu = () => {
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Ouvrir le menu');
-      mobileNav.classList.remove('active');
-      body.classList.remove('nav-open');
-    };
-
-    const toggleMenu = () => {
-      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    };
-
-    // Toggle on click
-    navToggle.addEventListener('click', toggleMenu);
-
-    // Close menu when clicking a nav link
-    mobileNav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    // Close menu on Escape key
-    doc.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-        closeMenu();
-        navToggle.focus();
-      }
-    });
-
-    // Close menu when clicking outside
-    doc.addEventListener('click', (event) => {
-      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      if (isOpen && !mobileNav.contains(event.target) && !navToggle.contains(event.target)) {
-        closeMenu();
-      }
-    });
-
-    // Reset on desktop
-    const desktopMedia = win.matchMedia('(min-width: 769px)');
-    desktopMedia.addEventListener('change', () => {
-      if (desktopMedia.matches) {
-        closeMenu();
-      }
-    });
-  }
 
   function setupAnalytics() {
     const elements = doc.querySelectorAll('[data-analytics]');

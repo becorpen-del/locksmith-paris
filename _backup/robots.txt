@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.paris-city-locksmith.com/sitemap.xml

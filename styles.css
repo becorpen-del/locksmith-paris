@@ -56,6 +56,22 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Skip to main content link - hidden visually but accessible to keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 img,
 svg,
 video {
@@ -429,6 +445,9 @@ button {
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
     width: 100%;
+    background: #0f4ea4;
+    position: relative;
+    z-index: 51;
   }
 
   /* --- Logo (gauche) --- */
@@ -436,174 +455,134 @@ button {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    padding: 4px;
   }
 
   .mobile-logo img {
-    width: 24px !important;
-    height: 24px !important;
+    width: 32px !important;
+    height: 32px !important;
     object-fit: contain;
     display: block;
   }
 
-  /* --- CTA téléphone (centre) --- */
-  .mobile-cta {
-    flex: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    background: #fff;
-    color: #1E58A8;
-    padding: 8px 12px;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .mobile-cta:hover,
-  .mobile-cta:focus-visible {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: #1E58A8;
-  }
-
-  .mobile-cta__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: #1E58A8;
-    color: #fff;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .mobile-cta__icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .mobile-cta__text {
-    line-height: 1.2;
-  }
-
-  /* --- Hamburger (droite) --- */
-  .nav-toggle {
+  /* --- Téléphone (droite) --- */
+  .mobile-phone-btn {
     flex: 0 0 auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.15);
-    border: none;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-toggle:hover,
-  .nav-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.25);
-  }
-
-  .nav-toggle__line {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: #fff;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  /* Hamburger -> X animation */
-  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-
-  /* --- Mobile Navigation --- */
-  .mobile-nav {
-    display: block !important;
-    position: relative;
-    max-height: 0;
-    overflow: hidden;
-    background: linear-gradient(180deg, #0d3f87 0%, #0a2d5a 100%);
-    border-top: 0 solid rgba(255, 255, 255, 0.1);
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                padding 0.35s ease,
-                border-top-width 0.35s ease;
-    padding: 0;
-    width: 100%;
-  }
-
-  .mobile-nav.active {
-    max-height: 400px;
-    padding: 0.75rem 0;
-    border-top-width: 1px;
-  }
-
-  .mobile-nav a {
-    display: block;
-    width: 100%;
-    padding: 14px 1.25rem;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: left;
     color: #fff;
     text-decoration: none;
-    border-left: 3px solid transparent;
-    transition: background 0.2s ease, 
-                padding-left 0.2s ease,
-                border-left-color 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
-  .mobile-nav a:hover,
-  .mobile-nav a:focus-visible {
-    background: rgba(255, 255, 255, 0.08);
-    padding-left: 1.75rem;
-    border-left-color: rgba(255, 255, 255, 0.5);
-  }
-}
-
-/* Responsive pour très petits écrans */
-@media (max-width: 380px) {
-  .mobile-cta {
-    padding: 6px 8px;
-    font-size: 0.7rem;
-    gap: 0.3rem;
+  .mobile-phone-btn:hover,
+  .mobile-phone-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
   }
 
-  .mobile-cta__icon {
+  .mobile-phone-btn svg {
     width: 20px;
     height: 20px;
   }
+}
 
-  .mobile-cta__icon svg {
-    width: 12px;
-    height: 12px;
+/* =============================================
+   HERO RESPONSIVE STYLES
+   ============================================= */
+@media (max-width: 768px) {
+  .hero-fullwidth {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .hero-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-left {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero__call-btn {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  .hero__phone-number {
+    font-size: 2rem;
+  }
+
+  .hero__features {
+    gap: 0.875rem;
+  }
+
+  .hero__features li {
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  /* Card "Need help now ?" sur mobile - stacké après le contenu texte */
+  .hero-right {
+    max-width: 100%;
+  }
+
+  .hero-right .contact-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .hero-right .contact-card__inner h3 {
+    font-size: 1.25rem;
+  }
+
+  .hero-right .btn-primary {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-fullwidth {
+    min-height: auto;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero__call-btn {
+    display: inline-flex;
+  }
+}
+
+/* Desktop : 2 colonnes 60% / 40% alignées en haut */
+@media (min-width: 1024px) {
+  .hero-inner.hero-grid,
+  .hero-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .hero-left {
+    flex: 0 0 60%;
+    max-width: 60%;
+    text-align: left;
+  }
+
+  .hero-right {
+    flex: 0 0 40%;
+    max-width: 40%;
   }
 }
 
@@ -865,22 +844,138 @@ button {
   }
 }
 
-.hero {
-  padding: var(--spacing-2xl) 0;
+/* =============================================
+   HERO FULL-WIDTH - Above the fold
+   ============================================= */
+.hero-fullwidth {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(30, 88, 168, 0.85) 0%, rgba(30, 88, 168, 0.75) 100%);
 }
 
 .hero__container {
-  display: grid;
-  gap: var(--spacing-xl);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-gutter);
 }
 
-.hero__content {
-  display: grid;
-  gap: var(--gap);
+/* Hero Inner Container */
+.hero-inner,
+.hero-grid {
+  width: 100%;
 }
 
-.hero__content > * {
+/* Mobile par défaut : stack vertical */
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.hero-left,
+.hero-right {
+  max-width: 100%;
+}
+
+/* Hero Left - Colonne gauche */
+.hero-left {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.hero-left > * {
   margin: 0;
+}
+
+.hero-left > .hero__label {
+  margin-top: 0;
+}
+
+/* Hero Right - Bloc "Need help now ?" */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-right .contact-card {
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 3;
+  border-radius: 24px;
+  padding: 1.75rem;
+}
+
+.hero-right .contact-card__inner h3 {
+  color: #1E58A8;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hero-right .contact-card__inner .help {
+  color: rgba(17, 24, 39, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.hero-right .human-badge {
+  margin: 1rem 0 0.5rem;
+}
+
+.hero-right .human-badge strong {
+  color: #1E58A8;
+  font-size: 1rem;
+}
+
+.hero-right .human-badge small {
+  color: rgba(17, 24, 39, 0.65);
+  font-size: 0.875rem;
+}
+
+.hero-right .btn-primary {
+  background: linear-gradient(135deg, #1E58A8, #0d3f87);
+  color: #fff;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.hero-right .btn-primary:hover,
+.hero-right .btn-primary:focus-visible {
+  background: linear-gradient(135deg, #0d3f87, #0a2d5a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hotline-banner {
@@ -948,22 +1043,111 @@ button {
   text-decoration: underline;
 }
 
-.hero__eyebrow {
+/* Hero Label */
+.hero__label {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
-  color: var(--color-primary-700);
-  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
 }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3rem);
+/* Hero Title */
+.hero-fullwidth h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 0;
 }
 
-.hero__subhead {
+/* Hero Subhead */
+.hero-fullwidth .hero__subhead {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+}
+
+/* Hero Features List */
+.hero__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.05rem;
-  color: rgba(17, 24, 39, 0.75);
+}
+
+.hero__features li svg {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__features li strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Hero CTA Section */
+.hero__cta {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hero__call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #fff;
+  color: #1E58A8;
+  padding: 1.25rem 2rem;
+  border-radius: 999px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero__call-btn:hover,
+.hero__call-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  color: #1E58A8;
+}
+
+.hero__call-btn svg {
+  width: 24px;
+  height: 24px;
+  color: #1E58A8;
+}
+
+.hero__phone-number {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
 .hero-human {
@@ -1667,10 +1851,7 @@ button {
 }
 
 @media (min-width: 1024px) {
-  .hero__container {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    align-items: start;
-  }
+  /* .hero__container styles removed - using flexbox on .hero-grid instead */
 
   .services__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1795,3 +1976,4 @@ button {
     transition: none;
   }
 }
+

@@ -332,99 +332,93 @@
       <div class="mobile-header">
         <!-- Logo à gauche -->
         <a class="mobile-logo" href="#hero" aria-label="Go to top">
-          <img src="/img/logo-lp-sxm.png" alt="Paris City Locksmith logo" width="24" height="24" decoding="async" />
+          <img src="/img/logo-lp-sxm.png" alt="Paris City Locksmith logo" width="32" height="32" decoding="async" />
         </a>
         
-        <!-- CTA téléphone au centre -->
-        <a class="mobile-cta" href="tel:+33651685988" data-analytics="cta-call-mobile" aria-label="Appeler le serrurier Paris 06 51 68 59 88">
-          <span class="mobile-cta__icon" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </span>
-          <span class="mobile-cta__text">Urgence 24/7 • 06 51 68 59 88</span>
+        <!-- Téléphone à droite -->
+        <a class="mobile-phone-btn" href="tel:+33651685988" data-analytics="cta-call-mobile" aria-label="Appeler le serrurier Paris 06 51 68 59 88">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
         </a>
-
-        <!-- Hamburger à droite -->
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">
-          <span class="nav-toggle__line"></span>
-          <span class="nav-toggle__line"></span>
-          <span class="nav-toggle__line"></span>
-          <span class="visually-hidden">Menu</span>
-        </button>
       </div>
-
-      <!-- Mobile Navigation -->
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Prices</a>
-        <a href="#faq">FAQ</a>
-        <a href="#call">Contact</a>
-      </nav>
     </div>
 
     <main id="main" class="main-content" tabindex="-1">
-      <section class="hero" id="hero" aria-labelledby="hero-title">
+      <section class="hero hero-fullwidth" id="hero" aria-labelledby="hero-title">
+        <div class="hero__background">
+          <img src="/img/lock-close-1.jpg" alt="" aria-hidden="true" />
+        </div>
+        <div class="hero__overlay"></div>
         <div class="container hero__container">
-          <div class="hero__content">
-            <section class="hotline-banner" aria-label="Call Locksmith Paris 24/7">
-              <div class="hotline-strip hotline-wrap">
-                <span class="badge-247">24/7</span>
-                <span class="hotline-label">Call Locksmith Paris Now:</span>
-                <a class="hotline-number tel-link" href="tel:+33651685988" aria-label="Call Locksmith Paris Now">06 51 68 59 88</a>
+          <div class="hero-inner hero-grid">
+            <!-- Colonne gauche : Contenu principal -->
+            <div class="hero-left">
+              <p class="hero__label">Emergency Locksmith – Paris</p>
+              <h1 id="hero-title">24/7 Locksmith Service in Paris</h1>
+              <p class="hero__subhead">Paris City Locksmith delivers rapid assistance across every arrondissement with a fixed-price quote, no hidden fees, and our locksmith Paris technicians ready for door openings, lock changes, and burglary repairs.</p>
+              <ul class="hero__features">
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span>Average arrival time <strong>30 minutes</strong></span>
+                </li>
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span><strong>English-speaking</strong> locksmiths available 24/7</span>
+                </li>
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                  <span>Residential &amp; commercial — <strong>homes and businesses</strong> across Paris</span>
+                </li>
+              </ul>
+              <div class="hero__cta">
+                <a class="hero__call-btn" href="tel:+33651685988" data-analytics="cta-call-hero" aria-label="Call Locksmith Paris 06 51 68 59 88">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <span>Call Now</span>
+                </a>
+                <p class="hero__phone-number">06 51 68 59 88</p>
               </div>
-            </section>
-            <p class="hero__eyebrow eyebrow">
-              <svg class="icon-lock" aria-hidden="true" viewBox="0 0 24 24" width="1em" height="1em">
-                <path d="M7 10V8a5 5 0 0 1 10 0v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="5" y="10" width="14" height="10" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>Emergency locksmith in Paris</span>
-            </p>
-            <h1 id="hero-title">Locksmith Paris — 24/7 Emergency Within 30 Minutes</h1>
-            <p class="hero__subhead">Paris City Locksmith delivers rapid assistance across every arrondissement with a fixed-price quote, no hidden fees, and our locksmith Paris technicians ready for door openings, lock changes, and burglary repairs.</p>
-            <picture class="hero-human">
-              <img
-                class="human-img"
-                src="/img/hero-locksmith.jpg"
-                srcset="/img/hero-locksmith.jpg 640w, /img/hero-locksmith.jpg 1024w, /img/hero-locksmith.jpg 1600w"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 65vw, 720px"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="Serrurier professionnel à Paris tenant ses outils">
-            </picture>
-            <ul class="hero__proof hero__proof-wrapper">
-              <li>Average arrival time <strong>30 minutes</strong></li>
-              <li>Transparent <strong>fixed-price quote</strong> before work</li>
-              <li>Damage-free opening &amp; <strong>12-month warranty</strong></li>
-            </ul>
-            <div class="hero__actions"></div>
-            <div class="hero__meta"></div>
-          </div>
-          <aside class="sticky sticky-contact" data-sticky-card>
-            <section id="call" class="card contact-card" aria-labelledby="call-title">
-              <div class="contact-card__inner">
-                <h3 id="call-title">Need help now?</h3>
-                <p class="help">Tap the button to call us immediately. We pick up 24/7.</p>
-                <div class="human-badge">
-                  <img class="human-avatar" src="/img/operator-24-7.jpg" alt="Julie, operator 24/7" loading="lazy" decoding="async">
-                  <div>
-                    <strong>Julie</strong> — Operator 24/7<br>
-                    <small>We answer in under 1 minute</small>
+            </div>
+
+            <!-- Colonne droite : Bloc "Need help now ?" -->
+            <aside class="hero-right">
+              <section id="call" class="card contact-card" aria-labelledby="call-title">
+                <div class="contact-card__inner">
+                  <h3 id="call-title">Need help now ?</h3>
+                  <p class="help">Tap the button to call us immediately. We pick up 24/7.</p>
+                  <div class="human-badge">
+                    <img class="human-avatar" src="/img/operator-24-7.jpg" alt="Julie, operator 24/7" loading="lazy" decoding="async">
+                    <div>
+                      <strong>Julie</strong> — Operator 24/7<br>
+                      <small>We answer in under 1 minute</small>
+                    </div>
+                  </div>
+                  <div class="contact-card__actions">
+                    <a class="btn btn-primary btn-call tel-link call-now"
+                       href="tel:+33651685988"
+                       data-analytics="cta-call-sidebar"
+                       aria-label="Call Now — 24/7">
+                      <span class="icon-phone" aria-hidden="true">🚨</span>
+                      <span class="btn-text">Call Now — <span class="badge-247">24/7</span></span>
+                    </a>
                   </div>
                 </div>
-                <div class="contact-card__actions">
-                  <a class="btn btn-primary btn-call tel-link call-now"
-                     href="tel:+33651685988"
-                     aria-label="Call Now — 24/7">
-                    <span class="icon-phone" aria-hidden="true">🚨</span>
-                    <span class="btn-text">Call Now — <span class="badge-247">24/7</span></span>
-                  </a>
-                </div>
-              </div>
-            </section>
-          </aside>
+              </section>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -947,6 +941,6 @@
     <span class="floating-call-cta__number">06 51 68 59 88</span>
   </a>
 
-  <script type="module" src="/app.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
 </html>
