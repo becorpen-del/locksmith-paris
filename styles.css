@@ -225,6 +225,19 @@ button {
   margin-right: 0.35rem;
 }
 
+.icon-phone svg {
+  display: inline-block;
+  vertical-align: middle;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+/* S'assurer que le SVG hérite de la couleur du bouton */
+.btn-call .icon-phone svg {
+  stroke: currentColor;
+}
+
 .call-now .btn-text {
   display: inline-flex;
   align-items: center;
@@ -251,7 +264,7 @@ button {
 }
 
 .call-now .badge-247 {
-  background: transparent !important;
+  background: #1E58A8 !important;
   color: #fff !important;
   padding: 0 !important;
   margin: 0 0 0 0.25rem !important;
@@ -443,11 +456,20 @@ button {
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem 1rem;
     width: 100%;
     background: #0f4ea4;
-    position: relative;
-    z-index: 51;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Compenser la hauteur du header fixe */
+  .hero-fullwidth {
+    padding-top: calc(1.5rem + 68px) !important;
   }
 
   /* --- Logo (gauche) --- */
@@ -455,11 +477,39 @@ button {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* --- Texte centré --- */
+  .mobile-header__text {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 8px;
+  }
+
+  .mobile-logo:hover,
+  .mobile-logo:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
   }
 
   .mobile-logo img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 28px !important;
+    height: 28px !important;
     object-fit: contain;
     display: block;
   }
@@ -489,6 +539,19 @@ button {
   .mobile-phone-btn svg {
     width: 20px;
     height: 20px;
+  }
+  
+  /* Responsive - réduire la taille du texte sur petits écrans */
+  @media (max-width: 375px) {
+    .mobile-header__text {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .mobile-header__text {
+      font-size: 12px;
+    }
   }
 }
 
@@ -549,6 +612,13 @@ button {
     width: 100%;
     padding: 1.25rem 1.5rem;
     font-size: 1.15rem;
+  }
+
+  .badge-247 {
+    width: 42px;
+    height: 24px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
   }
 }
 
@@ -1003,7 +1073,7 @@ button {
   width: 48px;
   height: 28px;
   border-radius: 999px;
-  background: var(--color-primary);
+  background: #1E58A8 !important;
   color: #fff !important;
   font-weight: 900;
   letter-spacing: 0.5px;
@@ -1011,7 +1081,7 @@ button {
 }
 
 .badge-247.on-light {
-  background: var(--brand-700);
+  background: #1E58A8 !important;
   color: #fff !important;
 }
 
@@ -1043,18 +1113,68 @@ button {
   text-decoration: underline;
 }
 
+/* Hero Logo Section */
+.hero__logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero__logo-section {
+    justify-content: flex-start;
+  }
+}
+
+/* Cercle bleu pour le logo (identique au bouton téléphone) */
+.hero__logo-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(30, 88, 168, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hero__logo-circle:hover {
+  background: rgba(30, 88, 168, 0.95);
+  transform: scale(1.05);
+}
+
+.hero__logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.hero__logo-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+}
+
 /* Hero Label */
 .hero__label {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.5rem 1rem;
+  letter-spacing: 0.15em;
+  color: #fff;
+  background: rgba(30, 88, 168, 0.85);
+  padding: 0.625rem 1.25rem;
   border-radius: 999px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero Title */
@@ -1073,6 +1193,21 @@ button {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
   max-width: 600px;
+}
+
+/* Hero Location Text */
+.hero__location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1rem 0;
+}
+
+.hero__location svg {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Hero Features List */
@@ -1138,6 +1273,18 @@ button {
   width: 24px;
   height: 24px;
   color: #1E58A8;
+}
+
+.hero__call-btn .badge-247 {
+  display: inline-block;
+  background: transparent !important;
+  color: #1E58A8 !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-left: 0.25rem;
+  box-shadow: none;
 }
 
 .hero__phone-number {
@@ -1649,8 +1796,8 @@ button {
 }
 
 .cta-hero .cta-hero__btn .badge-247 {
-  background: transparent !important;
-  color: inherit !important;
+  background: #1E58A8 !important;
+  color: #fff !important;
   padding: 0 !important;
   border: 0 !important;
 }
