@@ -1,11 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@600;700;800&display=swap');
+
 :root {
-  --color-primary: #1E58A8;
+  --hdr-h: 64px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --elev-cta: 0 6px 16px rgba(0, 0, 0, 0.15);
+  --primary: #1E4FA8;
+  --accent: #2563EB;
+  --title: #0F172A;
+  --text: #334155;
+  --bg: #F3F6FB;
+  --card: #FFFFFF;
+  --border: #E5E7EB;
+  --radius: 16px;
+  --container: 1200px;
+  --color-primary: var(--primary);
   --color-primary-700: #17478A;
   --color-secondary: #2B2F36;
-  --color-surface: #F7FAFF;
-  --color-border: #E5E7EB;
-  --color-text: #111827;
-  --color-accent: #F5A524;
+  --color-surface: var(--bg);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-accent: var(--accent);
   --color-success: #16A34A;
   --color-error: #DC2626;
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
@@ -14,6 +34,7 @@
   --radius-md: 0.75rem;
   --radius-sm: 0.5rem;
   --font-base: "Inter", "SF Pro Text", "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-title: "Outfit", "Inter", "SF Pro Text", "Segoe UI", "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   --spacing-2xs: 0.25rem;
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
@@ -21,21 +42,27 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-  --container-max: 1200px;
+  --container-max: var(--container);
   --gap: 16px;
-  --radius: 16px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --bg: #f7f9fc;
-  --card: #fff;
-  --text: #0a0a0a;
-  --muted: #556070;
-  --brand: #1E58A8;
+  --muted: #475569;
+  --brand: var(--primary);
   --brand-700: #17478A;
   --success: #16A34A;
+<<<<<<< HEAD
   --max-width: 1200px;
   --nav-blue: #1E58A8;
   --container-max: 1100px;
   --container-gutter: 24px;
+=======
+  --max-width: var(--container);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hdr-h: 60px;
+  }
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
 *, *::before, *::after {
@@ -84,14 +111,15 @@ h1 {
   font-weight: 800;
   line-height: 1.1;
   font-size: clamp(28px, 5vw, 48px);
-  color: var(--text);
+  color: var(--title);
+  font-family: var(--font-title);
 }
 
 h2 {
   font-weight: 700;
   line-height: 1.2;
   font-size: clamp(22px, 3.6vw, 32px);
-  color: var(--text);
+  color: var(--title);
 }
 
 p,
@@ -107,7 +135,7 @@ a {
 
 a:hover,
 a:focus-visible {
-  color: var(--color-primary-700);
+  color: var(--accent);
 }
 
 button,
@@ -131,7 +159,7 @@ button {
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
-  padding-inline: 16px;
+  padding-inline: clamp(16px, 4vw, 24px);
 }
 
 .grid {
@@ -275,22 +303,6 @@ button {
   display: inline-flex;
 }
 
-.sticky-call {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: saturate(150%) blur(6px);
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.sticky-call .btn-call {
-  width: 100%;
-}
-
 .grid.cols-2,
 .grid.cols-3,
 .grid.cols-4 {
@@ -313,10 +325,6 @@ button {
   .grid.cols-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .sticky-call {
-    display: none;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -326,10 +334,6 @@ button {
 
   .grid.cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .scroll-call-btn {
-    display: inline-flex;
   }
 }
 
@@ -343,6 +347,166 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.lp-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--hdr-h);
+  padding: 0 max(var(--space-md), env(safe-area-inset-left, 0px))
+             0 max(var(--space-md), env(safe-area-inset-right, 0px));
+  background: rgba(30, 79, 168, 0.92);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+
+.lp-header .header__inner {
+  height: 100%;
+  gap: var(--space-md);
+  grid-template-columns: auto 1fr auto;
+  min-height: var(--hdr-h);
+}
+
+.lp-header .brand-badge {
+  width: 44px;
+  height: 44px;
+}
+
+.lp-header .header__actions {
+  gap: var(--space-sm);
+}
+
+.hero-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--primary);
+  color: #fff;
+  padding-block: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lp-header {
+  padding-block: 0;
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 8px;
+  min-height: 68px;
+}
+
+.header__brand {
+  display: flex;
+}
+
+.brand-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: var(--primary);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-badge img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.header__center {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: clamp(16px, 4.2vw, 20px);
+  color: #fff;
+  text-align: center;
+}
+
+.header__cta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  justify-self: end;
+}
+
+.badge-24-7 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--primary);
+  font-weight: 800;
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+  font-size: clamp(14px, 3.8vw, 17px);
+}
+
+.header__cta.btn--ghost {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  box-shadow: none;
+  padding: 0 var(--space-sm);
+  font-weight: 700;
+}
+.btn__label {
+  display: inline;
+}
+.btn__number {
+  display: inline;
+}
+
+.header__cta:hover,
+.header__cta:focus-visible {
+  background: #f8fbff;
+  color: var(--primary);
+}
+
+.header__cta.btn--ghost:hover,
+.header__cta.btn--ghost:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
 }
 
 .eyebrow {
@@ -694,6 +858,24 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+.mobile-nav-container {
+  position: relative;
+}
+
+.badge-247 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  min-width: 64px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: var(--shadow-soft);
+}
+
 .cta-link {
   background: rgba(255, 255, 255, 0.2);
   padding: 0.35rem 0.85rem;
@@ -744,6 +926,7 @@ button {
 }
 
 .nav-toggle {
+<<<<<<< HEAD
   display: none;
   position: relative;
   width: 48px;
@@ -758,16 +941,37 @@ button {
   justify-content: center;
   gap: 6px;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+=======
+  background: var(--primary);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: 0 12px 26px rgba(30, 79, 168, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
 .nav-toggle__line {
   width: 22px;
+<<<<<<< HEAD
   height: 2px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(173, 208, 255, 0.9));
   border-radius: 999px;
   display: block;
   position: relative;
   transition: transform 0.2s ease, opacity 0.2s ease, width 0.2s ease;
+=======
+  height: 2.5px;
+  background: #fff;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
 .nav-toggle__sr {
@@ -780,15 +984,87 @@ button {
 }
 
 .primary-nav {
-  width: 100%;
-}
-
-#primary-nav[hidden] {
   display: none;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 auto;
+  justify-content: center;
+  justify-self: center;
 }
 
-.primary-nav.active {
-  display: block;
+.primary-nav .nav-list {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0;
+}
+
+.btn--ghost.btn--call {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  height: 40px;
+  padding: 0 var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: #2f54eb;
+  color: #fff;
+  box-shadow: var(--elev-cta);
+}
+
+.btn--xl {
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0 var(--space-lg);
+}
+
+.chips,
+.hero__chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
 }
 
 .nav-list {
@@ -797,18 +1073,26 @@ button {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 10px;
 }
 
 .nav-list a {
-  font-weight: 600;
-  color: var(--text);
+  font-weight: 700;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 12px;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .main-content {
   flex: 1;
 }
 
+<<<<<<< HEAD
 .no-js .main-nav {
   display: flex !important;
   position: static !important;
@@ -946,10 +1230,27 @@ button {
   inset: 0;
   z-index: 1;
   background: linear-gradient(135deg, rgba(30, 88, 168, 0.85) 0%, rgba(30, 88, 168, 0.75) 100%);
+=======
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 14vw, 140px) 0 clamp(80px, 18vw, 170px);
+  background: url('/img/lock-close-2.jpg') center/cover no-repeat;
+  color: #e2e8f0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.24);
+  z-index: 0;
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
 .hero__container {
   position: relative;
+<<<<<<< HEAD
   z-index: 2;
   width: 100%;
   max-width: var(--max-width);
@@ -961,6 +1262,17 @@ button {
 .hero-inner,
 .hero-grid {
   width: 100%;
+=======
+  z-index: 1;
+  display: grid;
+  justify-items: start;
+}
+
+.hero__content {
+  display: grid;
+  gap: 12px;
+  max-width: 640px;
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
 /* Mobile par défaut : stack vertical */
@@ -987,6 +1299,7 @@ button {
   margin: 0;
 }
 
+<<<<<<< HEAD
 .hero-left > .hero__label {
   margin-top: 0;
 }
@@ -1067,12 +1380,15 @@ button {
 }
 
 .badge-247 {
+=======
+.hero__badge {
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 28px;
+  gap: 8px;
+  padding: 8px 12px;
   border-radius: 999px;
+<<<<<<< HEAD
   background: #1E58A8 !important;
   color: #fff !important;
   font-weight: 900;
@@ -1295,69 +1611,70 @@ button {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.05em;
   margin: 0;
+=======
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  font-size: 0.82rem;
 }
 
-.hero-human {
+.hero h1 {
   margin: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: clamp(32px, 7vw, 56px);
+  text-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
-.hero__proof {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
+.hero__lead {
+  margin: 0 0 6px;
+  color: #E2E8F0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  max-width: 560px;
 }
 
-.hero__proof li {
-  background: #fff;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-  color: var(--text);
+.hero__cta {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff !important;
+  box-shadow: 0 16px 40px rgba(30, 79, 168, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 }
 
-.hero__meta {
-  display: none;
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 46px rgba(30, 79, 168, 0.42);
 }
 
-.meta-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: var(--spacing-sm);
-  align-items: center;
-  background: rgba(255, 255, 255, 0.92);
-  padding: var(--spacing-sm);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(17, 24, 39, 0.06);
-}
-
-.sticky-contact {
-  position: relative;
-}
-
-.contact-card {
-  padding: 24px;
-  border-radius: 22px;
-  box-shadow: var(--shadow-soft);
-}
-
-.contact-card__inner {
-  display: grid;
-  gap: 16px;
-}
-
-.contact-card__inner h3 {
-  margin: 0;
-  color: var(--text);
-}
-
-.contact-card__actions {
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 4px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(6px);
 }
 
 .contact-card .human-badge {
@@ -1525,17 +1842,12 @@ button {
 
 .service-thumb {
   border-radius: var(--radius-lg, 12px);
-  overflow: hidden;
   margin-bottom: var(--spacing-sm, 12px);
   aspect-ratio: 16 / 11;
-  background: #f3f6fb;
-}
-
-.service-thumb img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   display: block;
+  background: #f3f6fb;
 }
 
 @media (max-width: 640px) {
@@ -1906,29 +2218,6 @@ button {
   }
 }
 
-.scroll-call-btn {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-700));
-  color: #fff;
-  font-weight: 700;
-  box-shadow: var(--shadow-soft);
-  z-index: 200;
-  text-decoration: none;
-}
-
-.scroll-call-btn:hover,
-.scroll-call-btn:focus-visible {
-  box-shadow: 0 18px 42px rgba(30, 88, 168, 0.35);
-  transform: translateY(-2px);
-}
-
 @media (max-width: 980px) {
   .band--van {
     text-align: center;
@@ -1939,45 +2228,15 @@ button {
   }
 }
 
-@media (max-width: 720px) {
-  .hotline-wrap {
-    flex-wrap: wrap;
-    row-gap: 8px;
-  }
-}
-
-@media (max-width: 767px) {
-  body {
-    padding-bottom: 96px;
-  }
-}
-
-@media (max-width: 1023px) {
-  .hero__container {
-    gap: var(--spacing-xl);
-  }
-
-  .sticky-contact {
-    display: none;
+@media (min-width: 560px) {
+  .brand-text {
+    display: inline;
   }
 }
 
 @media (min-width: 640px) {
-  .nav-toggle {
-    display: none;
-  }
-
-  .primary-nav {
-    display: block !important;
-  }
-
-  .nav-list {
-    flex-direction: row;
-    gap: var(--spacing-lg);
-  }
-
-  .hero__meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .header__inner {
+    gap: 16px;
   }
 
   .services__grid {
@@ -1997,8 +2256,135 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+  .primary-nav {
+    display: none !important;
+  }
+
+  .btn__number {
+    display: none;
+  }
+
+  .brand-badge {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+    gap: 5px;
+    border-radius: 10px;
+  }
+
+  .nav-toggle__line {
+    width: 18px;
+    height: 2px;
+  }
+
+  .hero {
+    padding: 0;
+  }
+
+  .hero__content {
+    padding: calc(var(--space-lg) + env(safe-area-inset-top, 0px))
+             calc(var(--space-lg) + env(safe-area-inset-right, 0px))
+             var(--space-lg)
+             calc(var(--space-lg) + env(safe-area-inset-left, 0px));
+    gap: var(--space-md);
+  }
+
+  .hero__title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .hero__sub {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .hero__cta {
+    width: 100%;
+    max-width: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    padding: 0 var(--space-lg);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    box-shadow: var(--elev-cta);
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+  }
+
+  .site-title {
+    display: none;
+  }
+
+  .header__cta-row {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 1024px) {
+<<<<<<< HEAD
   /* .hero__container styles removed - using flexbox on .hero-grid instead */
+=======
+  .header__inner {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .header__center {
+    justify-items: start;
+    align-items: center;
+  }
+
+  .header__cta-row {
+    justify-content: flex-start;
+  }
+
+  .btn__number {
+    display: inline;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .primary-nav {
+    display: inline-flex;
+  }
+
+  .btn-ham {
+    display: none;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-list a {
+    padding: 0;
+    background: transparent;
+  }
+
+  .mobile-nav-container {
+    display: none;
+  }
+
+  .header__actions {
+    gap: 14px;
+  }
+
+  .site-title {
+    font-size: clamp(20px, 2.4vw, 24px);
+  }
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
 
   .services__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2063,11 +2449,11 @@ button {
   gap: 10px;
   padding: 14px 18px;
   border-radius: 999px;
-  background: #1849D6;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 24px rgba(16, 37, 93, 0.25),
-              0 2px 6px rgba(16, 37, 93, 0.15);
+  box-shadow: 0 12px 30px rgba(30, 79, 168, 0.32),
+              0 4px 10px rgba(30, 79, 168, 0.2);
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.2px;
@@ -2124,3 +2510,56 @@ button {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* ==== HAMBURGER BUTTON ==== */
+.btn-ham{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;backdrop-filter:saturate(120%) blur(6px);
+  -webkit-tap-highlight-color:transparent;
+  transition:background .2s ease, transform .08s ease;
+}
+.btn-ham:active{transform:translateY(1px)}
+.btn-ham:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.btn-ham .ham{position:relative;width:22px;height:14px}
+.btn-ham .ham i{
+  position:absolute;left:0;right:0;height:2px;border-radius:2px;background:#fff;
+  transform-origin:50% 50%;
+  transition:transform .25s ease, opacity .2s ease, top .25s ease;
+}
+.btn-ham .ham i:nth-child(1){top:0}
+.btn-ham .ham i:nth-child(2){top:6px}
+.btn-ham .ham i:nth-child(3){top:12px}
+/* open state */
+.btn-ham.is-open .ham i:nth-child(1){top:6px;transform:rotate(45deg)}
+.btn-ham.is-open .ham i:nth-child(2){opacity:0;transform:scaleX(.5)}
+.btn-ham.is-open .ham i:nth-child(3){top:6px;transform:rotate(-45deg)}
+
+/* ==== DRAWER + BACKDROP ==== */
+.drawer{
+  position:fixed;inset:0 0 0 auto;width:min(82vw,420px);height:100vh;
+  background:#0e1a4f;color:#fff;transform:translateX(100%);transition:transform .28s ease;
+  will-change:transform;z-index:1000;
+  padding:20px max(20px,env(safe-area-inset-right)) 24px 20px;
+  box-shadow:-12px 0 32px rgba(0,0,0,.35);
+}
+.drawer.is-open{transform:translateX(0)}
+.drawer__backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px);
+  opacity:0;transition:opacity .25s ease;z-index:999;
+}
+.drawer__backdrop.is-open{opacity:1}
+
+/* menu links */
+.drawer a{
+  display:block;padding:14px 0;font-weight:600;text-decoration:none;color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .btn-ham .ham i,.drawer{transition:none}
+}
+>>>>>>> fe071d4 (Mise à jour des fichiers app.js, index.html et styles.css)
