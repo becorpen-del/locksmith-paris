@@ -363,4 +363,86 @@
     };
   }
 
+  // Floating CTA visibility on scroll
+  setupFloatingCta();
+
+  function setupFloatingCta() {
+    const floatingCta = doc.querySelector('.floating-call-cta');
+    if (!floatingCta) return;
+
+    const heroSection = doc.querySelector('.hero-fullwidth');
+    if (!heroSection) {
+      floatingCta.classList.add('is-visible');
+      return;
+    }
+
+    const checkVisibility = () => {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroBottom = heroRect.bottom;
+
+      if (heroBottom < 100) {
+        floatingCta.classList.add('is-visible');
+      } else {
+        floatingCta.classList.remove('is-visible');
+      }
+    };
+
+    win.addEventListener('scroll', throttle(checkVisibility, 100), { passive: true });
+    checkVisibility();
+  }
+
+  // Hamburger menu toggle
+  setupHamburgerMenu();
+
+  function setupHamburgerMenu() {
+    const btnHam = doc.querySelector('.btn-ham');
+    const drawer = doc.querySelector('.drawer');
+    const backdrop = doc.querySelector('.drawer__backdrop');
+
+    if (!btnHam) return;
+
+    const closeDrawer = () => {
+      btnHam.classList.remove('is-open');
+      btnHam.setAttribute('aria-expanded', 'false');
+      if (drawer) drawer.classList.remove('is-open');
+      if (backdrop) backdrop.classList.remove('is-open');
+      body.classList.remove('drawer-open');
+    };
+
+    const openDrawer = () => {
+      btnHam.classList.add('is-open');
+      btnHam.setAttribute('aria-expanded', 'true');
+      if (drawer) drawer.classList.add('is-open');
+      if (backdrop) backdrop.classList.add('is-open');
+      body.classList.add('drawer-open');
+    };
+
+    btnHam.addEventListener('click', () => {
+      const isOpen = btnHam.classList.contains('is-open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDrawer);
+    }
+
+    // Close on Escape key
+    doc.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btnHam.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+
+    // Close drawer when clicking a link inside
+    if (drawer) {
+      drawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    }
+  }
+
 })();
