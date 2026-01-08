@@ -445,4 +445,56 @@
     }
   }
 
+  // Handle tel: links on desktop - copy to clipboard if not mobile
+  setupTelLinks();
+
+  function setupTelLinks() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) return; // On mobile, let the default tel: behavior work
+
+    const telLinks = doc.querySelectorAll('a[href^="tel:"]');
+
+    telLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const phoneNumber = link.getAttribute('href').replace('tel:', '').replace(/(\d{2})(?=\d)/g, '$1 ');
+
+        // Try to copy to clipboard
+        navigator.clipboard.writeText(phoneNumber).then(() => {
+          showPhoneToast('Numéro copié : ' + phoneNumber);
+        }).catch(() => {
+          showPhoneToast('Appelez le : ' + phoneNumber);
+        });
+      });
+    });
+  }
+
+  function showPhoneToast(message) {
+    // Remove existing phone toast if any
+    const existingToast = doc.querySelector('.phone-toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = doc.createElement('div');
+    toast.className = 'phone-toast';
+    toast.innerHTML = `
+      <div class="phone-toast__content">
+        <span class="phone-toast__icon">📞</span>
+        <span class="phone-toast__message">${message}</span>
+      </div>
+    `;
+    doc.body.appendChild(toast);
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+      toast.classList.add('is-visible');
+    });
+
+    // Remove after 4 seconds
+    setTimeout(() => {
+      toast.classList.remove('is-visible');
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  }
+
 })();

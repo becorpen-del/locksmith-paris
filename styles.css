@@ -3575,3 +3575,41 @@ body.drawer-open{overflow:hidden}
     display: none !important;
   }
 }
+
+
+/* Phone Toast for desktop */
+.phone-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  z-index: 10000;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.phone-toast.is-visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.phone-toast__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1E58A8;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(30, 88, 168, 0.4);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.phone-toast__icon {
+  font-size: 1.4rem;
+}
+
+.phone-toast__message {
+  white-space: nowrap;
+}
