@@ -454,6 +454,7 @@
     if (isMobile) return; // On mobile, let the default tel: behavior work
 
     const telLinks = doc.querySelectorAll('a[href^="tel:"]');
+    console.log('Tel links found:', telLinks.length, telLinks);
 
     telLinks.forEach(link => {
       link.addEventListener('click', (e) => {

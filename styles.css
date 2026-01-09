@@ -754,7 +754,7 @@ button {
 @media (max-width: 768px) {
   /* Hero padding adjustment */
   .hero-fullwidth {
-    padding-top: calc(1.5rem + 60px) !important;
+    padding-top: 60px !important;
   }
 
   /* --- Logo (gauche) --- */
@@ -847,7 +847,7 @@ button {
   .hero-fullwidth {
     min-height: auto;
     align-items: flex-start;
-    padding-top: 1.5rem;
+    padding-top: 60px;
     padding-bottom: 1.5rem;
   }
 
@@ -910,7 +910,7 @@ button {
 @media (min-width: 769px) {
   .hero-fullwidth {
     min-height: auto;
-    padding-top: 2.5rem;
+    padding-top: 70px;
     padding-bottom: 2.5rem;
   }
 
@@ -1303,8 +1303,8 @@ button {
   position: relative;
   min-height: 85vh;
   display: flex;
-  align-items: center;
-  padding-top: 3rem;
+  align-items: flex-start;
+  padding-top: 70px;
   padding-bottom: 3rem;
   overflow: hidden;
   color: #fff;
@@ -1503,6 +1503,7 @@ button {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: left 0.5s ease;
+  pointer-events: none;
 }
 
 .hero-right .btn-primary:hover::before {
@@ -3007,8 +3008,9 @@ button {
 .drawer__backdrop{
   position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px);
   opacity:0;transition:opacity .25s ease;z-index:999;
+  pointer-events:none;
 }
-.drawer__backdrop.is-open{opacity:1}
+.drawer__backdrop.is-open{opacity:1;pointer-events:auto}
 
 /* menu links */
 .drawer a{
@@ -3612,4 +3614,30 @@ body.drawer-open{overflow:hidden}
 
 .phone-toast__message {
   white-space: nowrap;
+}
+
+
+/* Fix: Ensure all tel links are clickable */
+a[href^="tel:"] {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Fix: Prevent decorative pseudo-elements from blocking clicks */
+.hero__call-btn::before,
+.hero__call-btn::after,
+.btn-primary::before,
+.btn-primary::after,
+.btn-call::before,
+.btn-call::after,
+.call-now::before,
+.call-now::after,
+.desktop-header__cta::before,
+.desktop-header__cta::after,
+.mobile-phone-btn::before,
+.mobile-phone-btn::after,
+.why-card--cta .btn::before,
+.why-card--cta .btn::after {
+  pointer-events: none;
 }
