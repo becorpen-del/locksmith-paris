@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Paris city shape -->
+  <g stroke="#fff" stroke-width="1.5" fill="none" opacity="0.6">
+    <!-- Outer boundary of Paris (roughly oval shape) -->
+    <path d="M200 30
+             C280 30 340 70 360 120
+             C380 170 380 220 360 270
+             C340 320 290 360 230 370
+             C180 378 130 370 90 340
+             C50 310 30 260 30 200
+             C30 140 50 90 90 60
+             C130 30 160 30 200 30Z"
+          stroke-width="2" opacity="0.8"/>
+
+    <!-- Seine River -->
+    <path d="M30 200
+             Q80 220 120 200
+             Q160 180 200 190
+             Q240 200 280 180
+             Q320 160 370 170"
+          stroke-width="3"
+          stroke-opacity="0.5"
+          stroke-linecap="round"/>
+
+    <!-- Arrondissements spiral pattern -->
+    <!-- 1st arr - center -->
+    <path d="M200 185 L215 185 L215 200 L200 200 Z" opacity="0.7"/>
+
+    <!-- 2nd arr -->
+    <path d="M215 175 L235 175 L235 200 L215 185 Z" opacity="0.65"/>
+
+    <!-- 3rd arr -->
+    <path d="M215 200 L240 200 L240 225 L215 225 Z" opacity="0.6"/>
+
+    <!-- 4th arr -->
+    <path d="M185 200 L215 200 L215 230 L185 230 Z" opacity="0.6"/>
+
+    <!-- 5th arr -->
+    <path d="M175 215 L200 215 L200 250 L170 245 Z" opacity="0.55"/>
+
+    <!-- 6th arr -->
+    <path d="M155 195 L185 195 L185 230 L155 225 Z" opacity="0.55"/>
+
+    <!-- 7th arr -->
+    <path d="M130 175 L170 175 L170 210 L130 205 Z" opacity="0.5"/>
+
+    <!-- 8th arr -->
+    <path d="M140 145 L185 145 L185 175 L140 175 Z" opacity="0.5"/>
+
+    <!-- 9th arr -->
+    <path d="M175 130 L215 130 L215 160 L175 160 Z" opacity="0.45"/>
+
+    <!-- 10th arr -->
+    <path d="M215 130 L260 135 L255 170 L215 165 Z" opacity="0.45"/>
+
+    <!-- 11th arr -->
+    <path d="M240 170 L290 175 L285 225 L240 220 Z" opacity="0.4"/>
+
+    <!-- 12th arr -->
+    <path d="M240 225 L300 230 L310 290 L250 280 Z" opacity="0.4"/>
+
+    <!-- 13th arr -->
+    <path d="M190 250 L250 255 L245 310 L180 300 Z" opacity="0.35"/>
+
+    <!-- 14th arr -->
+    <path d="M140 240 L190 245 L185 300 L130 290 Z" opacity="0.35"/>
+
+    <!-- 15th arr -->
+    <path d="M90 200 L145 205 L140 280 L80 260 Z" opacity="0.3"/>
+
+    <!-- 16th arr -->
+    <path d="M60 140 L130 150 L125 220 L55 200 Z" opacity="0.3"/>
+
+    <!-- 17th arr -->
+    <path d="M100 100 L175 105 L170 150 L95 145 Z" opacity="0.25"/>
+
+    <!-- 18th arr -->
+    <path d="M160 70 L240 75 L235 120 L155 115 Z" opacity="0.25"/>
+
+    <!-- 19th arr -->
+    <path d="M240 70 L310 90 L300 150 L245 130 Z" opacity="0.2"/>
+
+    <!-- 20th arr -->
+    <path d="M290 150 L340 170 L330 240 L285 220 Z" opacity="0.2"/>
+  </g>
+
+  <!-- Location markers -->
+  <g fill="#fff" opacity="0.9">
+    <!-- Main pin in center -->
+    <g transform="translate(188, 165)">
+      <path d="M12 0C5.4 0 0 5.4 0 12C0 21 12 32 12 32S24 21 24 12C24 5.4 18.6 0 12 0Z" fill="#fff"/>
+      <circle cx="12" cy="12" r="5" fill="#1E58A8"/>
+    </g>
+
+    <!-- Small dots for coverage -->
+    <circle cx="120" cy="180" r="4" opacity="0.6"/>
+    <circle cx="280" cy="200" r="4" opacity="0.6"/>
+    <circle cx="200" cy="280" r="4" opacity="0.6"/>
+    <circle cx="160" cy="120" r="4" opacity="0.6"/>
+    <circle cx="260" cy="130" r="4" opacity="0.6"/>
+    <circle cx="100" cy="240" r="4" opacity="0.6"/>
+    <circle cx="300" cy="260" r="4" opacity="0.6"/>
+  </g>
+
+  <!-- "PARIS" text -->
+  <text x="200" y="380" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" opacity="0.4">PARIS</text>
+</svg>

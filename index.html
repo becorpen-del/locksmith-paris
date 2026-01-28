@@ -12,7 +12,9 @@
   <meta name="theme-color" content="#1E58A8">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" type="image/png" href="/img/logo-lp-sxm.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preload" href="/styles.css" as="style">
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -297,7 +299,6 @@
   </script>
 </head>
 <body class="feature">
-  <a class="skip-link" href="#main">Skip to main content</a>
   <p class="no-js-notice">JavaScript is disabled. For the best experience, please enable it or call us at <a href="tel:+33651685988" class="tel-link" aria-label="Call locksmith Paris 24/7">06 51 68 59 88</a>.</p>
   <div class="site-wrapper">
     <div class="eyebrow" role="banner">
@@ -328,9 +329,12 @@
 
       <!-- Mobile Header -->
       <div class="mobile-header">
-        <a class="mobile-logo" href="#hero" aria-label="Go to top">
-          <img src="/img/logo-lp-sxm.png" alt="Paris City Locksmith logo" width="32" height="32" decoding="async" />
-        </a>
+        <div class="mobile-header__left">
+          <a class="mobile-logo" href="#hero" aria-label="Go to top">
+            <img src="/img/logo-lp-sxm.png" alt="Paris City Locksmith logo" width="32" height="32" decoding="async" />
+          </a>
+          <span class="mobile-header__badge">24/7</span>
+        </div>
         <span class="mobile-header__text">Locksmith Pro Paris</span>
         <div class="mobile-header__actions">
           <a class="mobile-phone-btn" href="tel:+33651685988" data-analytics="cta-call-mobile" aria-label="Appeler">
@@ -351,6 +355,10 @@
           <img src="/img/lock-close-1.jpg" alt="" aria-hidden="true" width="1920" height="1080" loading="eager" fetchpriority="high" />
         </div>
         <div class="hero__overlay"></div>
+        <!-- Carte de Paris décorative -->
+        <div class="hero__paris-map" aria-hidden="true">
+          <img src="/img/paris-map.png" alt="" width="400" height="400" loading="eager" />
+        </div>
         <div class="container hero__container">
           <!-- Logo dans la hero -->
           <div class="hero__logo-section">
@@ -360,112 +368,81 @@
             <span class="hero__logo-text">Locksmith Pro Paris</span>
           </div>
           <div class="hero-inner hero-grid">
-            <!-- Colonne gauche : Contenu principal -->
+            <!-- Contenu principal simplifié -->
             <div class="hero-left">
-              <h1 id="hero-title">24/7 Locksmith Service Paris & Nearby</h1>
-              <p class="hero__subhead">Paris City Locksmith delivers rapid assistance across every arrondissement with a fixed-price quote, no hidden fees, and our locksmith Paris technicians ready for door openings, lock changes, and burglary repairs.</p>
-              <p class="hero__location">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Locksmith Paris and Surrounding Areas</span>
-              </p>
-              <ul class="hero__features">
-                <li>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  <span>Average arrival time <strong>30 minutes</strong></span>
-                </li>
-                <li>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                  <span><strong>English-speaking</strong> locksmiths available 24/7</span>
-                </li>
-                <li>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                  </svg>
-                  <span>Residential &amp; commercial — <strong>homes and businesses</strong> across Paris</span>
-                </li>
-              </ul>
+              <!-- Indicateur de disponibilité -->
+              <div class="hero__available">
+                <span class="available-dot"></span>
+                <span>Available now — We pick up instantly</span>
+              </div>
+
+              <h1 id="hero-title"><span class="hero__title-accent">24/7</span> Locksmith <span class="hero__title-location">Paris</span></h1>
+
+              <p class="hero__tagline">We arrive in <strong>30 minutes</strong> or less</p>
+
+              <!-- Preuve sociale -->
+              <div class="hero__rating">
+                <div class="hero__stars" aria-label="4.9 out of 5 stars">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <span class="hero__rating-text"><strong>4.9/5</strong> — 1,200+ reviews</span>
+              </div>
+
+              <!-- CTA principal -->
               <div class="hero__cta">
-                <a class="hero__call-btn" href="tel:+33651685988" data-analytics="cta-call-hero" aria-label="Call Locksmith Paris 06 51 68 59 88">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <a class="hero__call-btn hero__call-btn--large" href="tel:+33651685988" data-analytics="cta-call-hero" aria-label="Call Locksmith Paris 06 51 68 59 88">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  <span>Call us Now ! <span class="badge-247">24/7</span></span>
+                  <span class="hero__call-btn-number">06 51 68 59 88</span>
                 </a>
+              </div>
+
+              <!-- Badges de confiance -->
+              <div class="hero__trust-badges">
+                <span class="trust-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Fixed price
+                </span>
+                <span class="trust-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  No hidden fees
+                </span>
+                <span class="trust-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Licensed
+                </span>
               </div>
             </div>
 
-            <!-- Colonne droite : Bloc "Need help now ?" -->
-            <aside class="hero-right">
-              <section id="call" class="card contact-card" aria-labelledby="call-title">
-                <div class="contact-card__inner">
-                  <h3 id="call-title">Need help now ?</h3>
-                  <p class="help">Tap the button to call us immediately. We pick up 24/7.</p>
-                  <div class="human-badge">
-                    <img class="human-avatar" src="/img/operator-24-7.jpg" alt="Julie, operator 24/7" loading="lazy" decoding="async">
-                    <div>
-                      <strong>Julie</strong> <span style="color: #1E58A8; font-weight: 600;">— Operator 24/7</span><br>
-                      <small>We answer in under 1 minute</small>
-                    </div>
-                  </div>
-                  <div class="contact-card__actions">
-                    <a class="btn btn-primary btn-call tel-link call-now"
-                       href="tel:+33651685988"
-                       data-analytics="cta-call-sidebar"
-                       aria-label="Call Now — 24/7">
-                      <span class="icon-phone" aria-hidden="true">🚨</span>
-                      <span class="btn-text">Call Now — <span class="badge-247">24/7</span></span>
-                    </a>
+            <!-- Carte compacte -->
+            <aside class="hero-right" id="call">
+              <div class="hero__compact-card">
+                <div class="hero__compact-card-header">
+                  <img class="hero__operator-avatar" src="/img/operator-24-7.jpg" alt="Julie, operator" width="48" height="48" loading="lazy" decoding="async">
+                  <div>
+                    <strong>Julie</strong>
+                    <span class="hero__operator-status">
+                      <span class="available-dot available-dot--small"></span>
+                      Online now
+                    </span>
                   </div>
                 </div>
-              </section>
+                <p class="hero__compact-card-text">Tap to call — we answer in under 1 minute</p>
+                <a class="hero__compact-card-btn" href="tel:+33651685988" aria-label="Call Now">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Call Now — 24/7
+                </a>
+              </div>
             </aside>
           </div>
         </div>
       </section>
 
-      <section class="social-proof full-bleed" aria-label="Customer rating and partners">
-        <div class="social-proof__grid grid cols-3">
-          <div class="social-proof__card">
-            <div class="social-proof__card-icon">
-              <img src="/assets/star.svg" width="48" height="48" alt="Five-star locksmith rating" loading="lazy" decoding="async">
-            </div>
-            <div>
-              <strong>4.9/5 rating</strong>
-              <span>Based on 1,200+ verified reviews</span>
-            </div>
-          </div>
-          <div class="social-proof__card">
-            <div class="social-proof__card-icon">
-              <img src="/assets/clock.svg" width="48" height="48" alt="Clock showing fast locksmith response in Paris" loading="lazy" decoding="async">
-            </div>
-            <div>
-              <strong>24/7 call-outs</strong>
-              <span>Anywhere in Paris &amp; suburbs</span>
-            </div>
-          </div>
-          <div class="social-proof__card">
-            <div class="social-proof__card-icon">
-              <img src="/assets/shield.svg" width="48" height="48" alt="Shield representing licensed locksmiths" loading="lazy" decoding="async">
-            </div>
-            <div>
-              <strong>Licensed &amp; insured</strong>
-              <span>Police-vetted engineers on every job</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section class="services" id="services" aria-labelledby="services-title">
         <div class="container">
@@ -948,37 +925,11 @@
     </div>
   </div>
 
-  <div class="sticky-call" role="region" aria-label="Call to action" data-visible-on="mobile">
-    <a class="btn btn-primary btn-call tel-link call-now" href="tel:+33651685988" data-mobile-cta aria-label="Call us Now ! 24/7">
-      <span class="icon-phone" aria-hidden="true">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="20" height="20">
-          <g id="border">
-            <path fill="currentColor" stroke="currentColor" stroke-width="10" stroke-miterlimit="10" d="M411.8,374.9h-7.4V192.7h0C403,118.5,334.4,58.7,250,58.7S97,118.5,95.7,192.7h0v182.2h-7.4l-7,66.4h337.7L411.8,374.9z"/>
-          </g>
-          <g id="object">
-            <polygon fill="#808080" points="418.9,441.3 81.1,441.3 88.2,374.9 411.8,374.9"/>
-            <path fill="#F25238" d="M404.3,192.7C403,118.5,334.4,58.7,250,58.7S97,118.5,95.7,192.7h0v182.2h308.8L404.3,192.7L404.3,192.7z"/>
-            <path fill="#BF321B" d="M362.6,222.9c-1-61.9-51-111.9-112.6-111.9S138.4,161,137.4,222.9h0v152h225.2L362.6,222.9L362.6,222.9z"/>
-            <path fill="#FFA99C" d="M319.2,354.6h15.1c4.7,0,8.5-3.8,8.5-8.5V215.9c0-4.7-3.8-8.5-8.5-8.5h-15.1c-4.7,0-8.5,3.8-8.5,8.5v130.2C310.7,350.8,314.5,354.6,319.2,354.6z"/>
-          </g>
-        </svg>
-      </span>
-      <span class="btn-text">Call us Now ! <span class="badge-247">24/7</span></span>
-    </a>
-  </div>
 
   <a class="scroll-call-btn" href="#call" aria-label="Jump to call now section">
     Call now
   </a>
 
-  <!-- Floating Call CTA -->
-  <a href="tel:+33651685988"
-     class="floating-call-cta"
-     aria-label="Call now — 24/7">
-    <span class="floating-call-cta__icon" aria-hidden="true">🚨</span>
-    <span class="floating-call-cta__label">Call Now — 24/7</span>
-    <span class="floating-call-cta__number">06 51 68 59 88</span>
-  </a>
 
   <script type="module" src="/main.js"></script>
 </body>
