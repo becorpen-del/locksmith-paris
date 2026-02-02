@@ -1740,7 +1740,6 @@ button {
   font-weight: 600;
   color: #fff;
   margin-bottom: 1.5rem;
-  margin-top: -3rem;
 }
 
 .available-dot {
@@ -2663,6 +2662,15 @@ button {
   font-size: 1.1rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
+}
+
+.review__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(30, 88, 168, 0.15);
 }
 
 .review__text {
