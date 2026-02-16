@@ -1958,6 +1958,7 @@ button {
   .hero__available {
     font-size: 0.8rem;
     padding: 0.4rem 0.875rem;
+    margin-top: -1.5rem;
   }
 
   .hero__tagline {
