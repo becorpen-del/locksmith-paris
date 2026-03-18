@@ -124,6 +124,10 @@
     const elements = doc.querySelectorAll('[data-analytics]');
     elements.forEach((el) => {
       el.addEventListener('click', () => {
+        var href = el.getAttribute('href') || '';
+        if (href.indexOf('tel:') === 0) {
+          trackTelephone(href);
+        }
         dataLayer.push({
           event: 'cta_click',
           id: el.getAttribute('data-analytics'),
