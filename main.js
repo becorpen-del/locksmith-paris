@@ -7,6 +7,36 @@
   const body = doc.body;
   const dataLayer = win.dataLayer || (win.dataLayer = []);
 
+  // --- Google Ads Conversion Tracking ---
+  const CONVERSION_IDS = {
+    formulaire: 'AW-958059324/ObOOCOHL-YocELym68gD',
+    whatsapp:   'AW-958059324/aArPCJnpgYscELym68gD',
+    telephone:  'AW-958059324/DVjPCJzpgYscELym68gD',
+  };
+
+  function gtagReportConversion(sendTo, url) {
+    if (!win.gtag) return;
+    var callback = function () {
+      if (url) win.location.href = url;
+    };
+    win.gtag('event', 'conversion', {
+      send_to: sendTo,
+      event_callback: callback,
+    });
+  }
+
+  function trackFormulaire() {
+    gtagReportConversion(CONVERSION_IDS.formulaire);
+  }
+
+  function trackWhatsapp(url) {
+    gtagReportConversion(CONVERSION_IDS.whatsapp, url);
+  }
+
+  function trackTelephone(url) {
+    gtagReportConversion(CONVERSION_IDS.telephone, url);
+  }
+
   const yearEl = doc.getElementById('current-year');
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -104,6 +134,7 @@
       }
 
       dataLayer.push({ event: 'lead_submit', page: 'locksmith_paris' });
+      trackFormulaire();
       successMessage.hidden = false;
       formEl.reset();
       fields.forEach(({ control, error }) => {
@@ -451,7 +482,15 @@
   function setupTelLinks() {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    if (isMobile) return; // On mobile, let the default tel: behavior work
+    if (isMobile) {
+      // On mobile, let the default tel: behavior work but still track
+      doc.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => {
+          trackTelephone(link.getAttribute('href'));
+        });
+      });
+      return;
+    }
 
     const telLinks = doc.querySelectorAll('a[href^="tel:"]');
     console.log('Tel links found:', telLinks.length, telLinks);
@@ -459,6 +498,7 @@
     telLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        trackTelephone(link.getAttribute('href'));
         const phoneNumber = link.getAttribute('href').replace('tel:', '').replace(/(\d{2})(?=\d)/g, '$1 ');
 
         // Try to copy to clipboard

@@ -7,6 +7,36 @@
   const body = doc.body;
   const dataLayer = win.dataLayer || (win.dataLayer = []);
 
+  // --- Google Ads Conversion Tracking ---
+  const CONVERSION_IDS = {
+    formulaire: 'AW-958059324/ObOOCOHL-YocELym68gD',
+    whatsapp:   'AW-958059324/aArPCJnpgYscELym68gD',
+    telephone:  'AW-958059324/DVjPCJzpgYscELym68gD',
+  };
+
+  function gtagReportConversion(sendTo, url) {
+    if (!win.gtag) return;
+    var callback = function () {
+      if (url) win.location.href = url;
+    };
+    win.gtag('event', 'conversion', {
+      send_to: sendTo,
+      event_callback: callback,
+    });
+  }
+
+  function trackFormulaire() {
+    gtagReportConversion(CONVERSION_IDS.formulaire);
+  }
+
+  function trackWhatsapp(url) {
+    gtagReportConversion(CONVERSION_IDS.whatsapp, url);
+  }
+
+  function trackTelephone(url) {
+    gtagReportConversion(CONVERSION_IDS.telephone, url);
+  }
+
   const yearEl = doc.getElementById('current-year');
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -175,6 +205,7 @@
       }
 
       dataLayer.push({ event: 'lead_submit', page: 'locksmith_paris' });
+      trackFormulaire();
       successMessage.hidden = false;
       formEl.reset();
       fields.forEach(({ control, error }) => {
@@ -492,4 +523,11 @@
       }
     };
   }
+
+  // --- Track tel: link clicks as Google Ads conversions ---
+  doc.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      trackTelephone(link.getAttribute('href'));
+    });
+  });
 })();
