@@ -7,34 +7,14 @@
   const body = doc.body;
   const dataLayer = win.dataLayer || (win.dataLayer = []);
 
-  // --- Google Ads Conversion Tracking ---
-  const CONVERSION_IDS = {
-    formulaire: 'AW-958059324/ObOOCOHL-YocELym68gD',
-    whatsapp:   'AW-958059324/aArPCJnpgYscELym68gD',
-    telephone:  'AW-958059324/DVjPCJzpgYscELym68gD',
-  };
-
-  function gtagReportConversion(sendTo, url) {
-    if (!win.gtag) return;
-    var callback = function () {
-      if (url) win.location.href = url;
-    };
-    win.gtag('event', 'conversion', {
-      send_to: sendTo,
-      event_callback: callback,
-    });
-  }
-
-  function trackFormulaire() {
-    gtagReportConversion(CONVERSION_IDS.formulaire);
-  }
-
-  function trackWhatsapp(url) {
-    gtagReportConversion(CONVERSION_IDS.whatsapp, url);
-  }
-
   function trackTelephone(url) {
-    gtagReportConversion(CONVERSION_IDS.telephone, url);
+    if (!win.gtag) return;
+    win.gtag('event', 'conversion', {
+      send_to: 'AW-958059324/DVjPCJzpgYscELym68gD',
+      event_callback: function () {
+        if (url) win.location.href = url;
+      },
+    });
   }
 
   const yearEl = doc.getElementById('current-year');
@@ -138,7 +118,6 @@
       }
 
       dataLayer.push({ event: 'lead_submit', page: 'locksmith_paris' });
-      trackFormulaire();
       successMessage.hidden = false;
       formEl.reset();
       fields.forEach(({ control, error }) => {
