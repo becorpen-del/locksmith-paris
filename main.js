@@ -7,16 +7,6 @@
   const body = doc.body;
   const dataLayer = win.dataLayer || (win.dataLayer = []);
 
-  function trackTelephone(url) {
-    if (!win.gtag) return;
-    win.gtag('event', 'conversion', {
-      send_to: 'AW-958059324/DVjPCJzpgYscELym68gD',
-      event_callback: function () {
-        if (url) win.location.href = url;
-      },
-    });
-  }
-
   const yearEl = doc.getElementById('current-year');
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
@@ -33,10 +23,6 @@
     const elements = doc.querySelectorAll('[data-analytics]');
     elements.forEach((el) => {
       el.addEventListener('click', () => {
-        var href = el.getAttribute('href') || '';
-        if (href.indexOf('tel:') === 0) {
-          trackTelephone(href);
-        }
         dataLayer.push({
           event: 'cta_click',
           id: el.getAttribute('data-analytics'),
