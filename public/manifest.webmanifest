@@ -1,7 +1,7 @@
 {
-  "name": "Paris City Locksmith",
+  "name": "Locksmith Pro Paris",
   "short_name": "Locksmith Paris",
-  "description": "Paris City Locksmith provides 24/7 emergency locksmith services with 30-minute arrival and fixed-price quotes.",
+  "description": "Locksmith Pro Paris provides 24/7 emergency locksmith services with a 30-minute average arrival.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
